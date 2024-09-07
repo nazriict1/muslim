@@ -1,3 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maulid Nabi</title>
+<link rel="stylesheet" href="https://unpkg.com/typeplate-starter@0.0.1/typeplate.min.css">
+
+<style>
+
+/* Additional custom styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 2;
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.danger-div {
+    background-color: red;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.header_img-div {
+    background-color: white;
+    padding:5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.rounded-div {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid turquoise;
+    font-size: 16px; /* Default font size */
+}
+
+.selawat-div {
+    background-color: white;
+    padding:0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.highlight {
+    background-color: #e0f2f7;
+}
+
+.action {
+    background-color: #f0f8ff;
+}
+
+/* Styles for the floating div */
+#floatingDiv {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles for the buttons inside the floating div */
+.floating-btn {
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.floating-btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    #floatingDiv {
+        right: 10px; /* Smaller right margin for mobile */
+        bottom: 10px; /* Smaller bottom margin for mobile */
+    }
+
+    .floating-btn {
+        padding: 8px; /* Smaller padding for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .rounded-div {
+        font-size: 14px; /* Smaller text for mobile screens */
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="header_img-div">
+    <img src="header.jpg" alt="Maulid Nabi" width="300px" height="auto">
+</div>
+
 
 <div class="rounded-div">
     Let's tell the story of our Prophet. The Messenger of Allah, the savior of mankind, in this world and the hereafter. 
@@ -242,3 +377,39 @@
 <div class="rounded-div">
     Du'a
 </div>
+
+
+<!-- Floating div with buttons to adjust font size -->
+<div id="floatingDiv">
+    <button class="floating-btn" id="increaseFont">A+</button>
+    <button class="floating-btn" id="decreaseFont">A-</button>
+</div>
+
+<script>
+// JavaScript to adjust font size in the rounded-div elements
+let currentFontSize = 16; // Default font size
+
+document.getElementById("increaseFont").addEventListener("click", function() {
+    currentFontSize += 2; // Increase font size by 2px
+    updateFontSize();
+});
+
+document.getElementById("decreaseFont").addEventListener("click", function() {
+    if (currentFontSize > 10) { // Prevent font size from getting too small
+        currentFontSize -= 2; // Decrease font size by 2px
+        updateFontSize();
+    }
+});
+
+function updateFontSize() {
+    const roundedDivs = document.querySelectorAll(".rounded-div");
+    roundedDivs.forEach(div => {
+        div.style.fontSize = currentFontSize + "px"; // Update font size
+    });
+}
+
+</script>
+
+</body>
+
+</html>
