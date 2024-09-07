@@ -390,6 +390,37 @@ Here is the translation of the web content into Thai:
 <div class="rounded-div">
 บทดุอา
 </div>
+<!-- Floating div with buttons to adjust font size -->
+<div id="floatingDiv">
+    <button class="floating-btn" id="increaseFont">A+</button>
+    <button class="floating-btn" id="decreaseFont">A-</button>
+</div>
+
+<script>
+// JavaScript to adjust font size in the rounded-div elements
+let currentFontSize = 16; // Default font size
+
+document.getElementById("increaseFont").addEventListener("click", function() {
+    currentFontSize += 2; // Increase font size by 2px
+    updateFontSize();
+});
+
+document.getElementById("decreaseFont").addEventListener("click", function() {
+    if (currentFontSize > 10) { // Prevent font size from getting too small
+        currentFontSize -= 2; // Decrease font size by 2px
+        updateFontSize();
+    }
+});
+
+function updateFontSize() {
+    const roundedDivs = document.querySelectorAll(".rounded-div");
+    roundedDivs.forEach(div => {
+        div.style.fontSize = currentFontSize + "px"; // Update font size
+    });
+}
+
+</script>
 
 </body>
+
 </html>
